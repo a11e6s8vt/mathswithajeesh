@@ -105,7 +105,7 @@ http://127.0.0.1:8000
 **Method:** POST
 **URL:** /co/assignment_problem/solve
 
-This endpoint computes an optimal assignment using the Hungarian (Kuhn–Munkres) algorithm from `maths::graph_theory::hungarian`.
+This endpoint computes an optimal assignment using the Hungarian (Kuhn–Munkres) algorithm from `maths::comb_optimization::hungarian`.
 
 ### 📨 Input Format (JSON)
 
@@ -237,13 +237,13 @@ The server returns a list of computational snapshots representing stages of the 
 
 Internally, the Rocket server calls `maths::comb_optimization::assigment_problem` which in turn calls:
 
-- `maths::graph_theory::hungarian`
-- `maths::graph_theory::bipartite_matching`
+- `maths::comb_optimization::hungarian`
+- `maths::graph_theory::bipartite`
 
 A future version will expose a direct Rust API such as:
 
 ```rust
-use mathswithajeesh::maths::graph_theory::hungarian::solve_assignment;
+use mathswithajeesh::maths::comb_optimization::hungarian::solve_assignment;
 ```
 
 For now, the HTTP API is the official interface.
